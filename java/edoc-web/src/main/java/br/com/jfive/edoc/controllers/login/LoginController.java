@@ -2,27 +2,27 @@ package br.com.jfive.edoc.controllers.login;
 
 
 import br.com.caelum.vraptor.*;
-import br.com.caelum.vraptor.simplemail.Mailer;
+//import br.com.caelum.vraptor.simplemail.Mailer;
 import br.com.caelum.vraptor.view.Results;
 import br.com.jfive.edoc.models.UsuarioDTO;
 import br.com.jfive.edoc.models.UsuarioEntity;
 import br.com.jfive.edoc.service.UsuarioService;
-import org.apache.commons.mail.Email;
+/*import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
-
+*/
 
 @Resource
 public class LoginController {
 
     private final Result result;
-    private Mailer mailer;
+    //private Mailer mailer;
     private UsuarioService usuarioService;
 
 
-    public LoginController(Result result,Mailer mailer, UsuarioService usuarioService) {
+    public LoginController(Result result/*,Mailer mailer*/, UsuarioService usuarioService) {
         this.result = result;
-        this.mailer = mailer;
+        //this.mailer = mailer;
         this.usuarioService = usuarioService;
     }
 
@@ -49,7 +49,7 @@ public class LoginController {
 
             ResultString message = new ResultString("Nova senha enviada para seu e-mail verifique e tente novamente o login", false);
 
-            Email emailSend = new SimpleEmail();
+           /* Email emailSend = new SimpleEmail();
             emailSend.setSubject("[GMUD] - Nova Senha");
             try {
                 emailSend.addTo(usuario.getEmail());
@@ -58,7 +58,7 @@ public class LoginController {
                 mailer.send(emailSend);
             } catch (EmailException e) {
                 message = new ResultString("Erro no envio do e-mail", true);
-            }
+            }*/
 
             result.use(Results.json()).withoutRoot().from(message).recursive().serialize();
         }

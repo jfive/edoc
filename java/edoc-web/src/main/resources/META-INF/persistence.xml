@@ -6,7 +6,7 @@
 
     <persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <non-jta-data-source>java:/jboss/gmud</non-jta-data-source>
+        <non-jta-data-source>java:/jboss/edoc</non-jta-data-source>
 
         <class>br.com.jfive.edoc.models.UsuarioEntity</class>
 

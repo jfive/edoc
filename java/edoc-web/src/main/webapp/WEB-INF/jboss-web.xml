@@ -2,8 +2,8 @@
 
 <jboss-web>
     <!-- URL to access the web module -->
-    <context-root>gmud</context-root>
+    <context-root>edoc</context-root>
 
     <!-- Realm that will be used -->
-    <security-domain>java:/jaas/gmudRealm</security-domain>
+    <security-domain>java:/jaas/edocRealm</security-domain>
 </jboss-web>
