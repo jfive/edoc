@@ -1,0 +1,14 @@
+<security-domain name="eboxRealm">
+	<authentication>
+    	<login-module code="Database" flag="required">
+    		<module-option name="dsJndiName" value="java:jboss/ebox"/>
+    		<module-option name="principalsQuery" value="select u.senha_usuario as passwd from usuario u where u.login_usuario=?"/>
+		    <module-option name="rolesQuery" value="select r.nome_role as user_roles, 'Roles' from usuario u inner join perfil_acesso ps on ps.id_perfil_acesso = u.id_perfil_acesso inner join perfil_acesso_role psr on psr.id_perfil_acesso = ps.id_perfil_acesso inner join role r on r.id_role = psr.id_role where u.login_usuario=?"/>
+		    <module-option name="password-stacking" value="useFirstPass"/>
+	    </login-module>
+    	<login-module code="org.jboss.security.auth.spi.RoleMappingLoginModule" flag="optional">
+		    <module-option name="rolesProperties" value="${jboss.server.config.dir}/test-roles.properties"/>
+		    <module-option name="replaceRole" value="false"/>
+	    </login-module>
+    </authentication>
+</security-domain>
